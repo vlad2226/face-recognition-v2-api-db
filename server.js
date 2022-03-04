@@ -22,7 +22,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send(database.users);
+  res.send("it's working!");
 });
 
 app.post("/signin", (req, res) => {
@@ -102,8 +102,6 @@ app.put("/image", (req, res) => {
     .catch((err) => res.status(400).json("unable to get entries"));
 });
 
-const DB_URL = process.env.DB_URL;
-
-app.listen(DB_URL, () => {
-  console.log(`app is running on port ${DB_URL}`);
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`app is running on port ${process.env.PORT}`);
 });
